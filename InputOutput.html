@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+
+    
+    <style>
+        body {
+             background-image: url('static/background.png');
+             background-repeat: no-repeat;
+        }
+        h1{
+            text-align: center;
+            color: rgb(21, 5, 242);
+        }
+        table {
+            border: 1px solid black;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            background-color: aquamarine;
+        }
+
+        input[type="button"] {
+            width: 70px;
+            height: 70px;
+            padding: 15px 5px;
+            background-color: rgba(96, 172, 244, 0.874);
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            /* border: none; */
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="button"]:hover {
+           background-color: #0056b3;
+        }
+        
+
+        input[type="text"] {
+            padding: 20px 0px;
+            /* width: 30%; */
+            font-size: 24px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            border: 2px solid black;
+            text-align: center;
+        }
+
+        input[name="C"] {
+            background-color: rgb(240, 84, 84);
+        }
+
+        input[name="C"]:hover {
+            background-color: rgb(249, 21, 21);
+        }
+
+        input[name="="] {
+            background-color: rgb(243, 135, 68);
+        }
+
+        input[name="="]:hover {
+            background-color: rgb(255, 68, 0);
+        }
+
+        input[name="/"], input[name="+"], input[name="root"], input[name="%"], input[name="*"], input[name="-"] ,input[name="|"]{
+            background-color: rgb(255, 179, 0);
+        }
+
+        input[name="/"]:hover,
+        input[name="+"]:hover,
+        input[name="root"]:hover,
+        input[name="%"]:hover,
+        input[name="*"]:hover,
+        input[name="-"]:hover {
+            background-color: rgb(255, 140, 0);
+            /* Add additional styles for the hover effect here */
+        }
+
+        input[name="sin"], input[name="cos"], input[name="tan"], input[name="inv"], input[name="log"], input[name="e"] {
+            background-color: rgb(181, 187, 136);
+        }
+
+        input[name="sin"]:hover,
+        input[name="cos"]:hover,
+        input[name="tan"]:hover,
+        input[name="inv"]:hover,
+        input[name="log"]:hover,
+        input[name="e"]:hover {
+            background-color: rgb(154, 166, 65);
+        }
+
+
+        output[type="text"] {
+            padding: 20px 30px;
+            font-size: 80px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            border: 2px solid black;
+        }
+    </style>
+
+    <title>Calculator</title>
+    <script src="static/utility.js"></script>
+</head>
+
+<body>
+    <h1>Calculator</h1>
+    <form name="my_form">
+        <table id="calcu">
+
+            <tr>
+                <td colspan="2"> <input type="text" name="N1" placeholder="Number"></td>
+                <td colspan="2"> <input type="text" name="N2" placeholder="Number"></td>
+            </tr>
+            <tr>
+		    <td colspan="4"><input style="color: red;" id="res" type="text" name="res" placeholder="Result"></td>
+            </tr>
+           
+            <tr>
+            <td><input name="+" type="button" class="btn btn-sm" onclick="submitData('add')" value="+"></td>
+
+
+                <td><input name="*" type="button" class="btn btn-sm" onclick="submitData('multiplication')" value="*"></td>
+                <td><input name="s" type="button" class="btn btn-sm" onclick="submitData('your-function')" value="s"></td>
+                <td><input name="isDiff" type="button" class="btn btn-sm" onclick="submitData('isDiff')" value="isDiff"></td>
+                <td><input name="**" type="button" class="btn btn-sm" onclick="submitData('Exponentiation')" value="**"></td>
+                <td><input name="MAX" type="button" class="btn btn-sm" onclick="submitData('MAX')" value="MAX"></td>
+                <td><input name="s" type="button" class="btn btn-sm" onclick="submitData('your-function')" value="s"></td>
+
+
+                <td><input name="*" type="button" class="btn btn-sm" onclick="submitData('multiplication')" value="*"></td>
+
+
+
+
+                <td><input name="==" type="button" class="btn btn-sm" onclick="submitData('is_equal')" value="=="></td>
+
+
+                <td><input name="isEqual" type="button" class="btn btn-sm" onclick="submitData('is_equal')" value="isEqual"></td>
+
+                <td><input name="s" type="button" class="btn btn-sm" onclick="submitData('your-function')" value="s"></td>
+
+                <td><input name="Min" type="button" class="btn btn-sm" onclick="submitData('Min')" value="Min"></td>
+
+                <td><input name="rightshit" type="button" class="btn btn-sm" onclick="submitData('rightshift')" value="rightshift"></td>
+
+                <td><input name="*" type="button" class="btn btn-sm" onclick="submitData('multiplication')" value="*"></td>
+                <td><input name="s" type="button" class="btn btn-sm" onclick="submitData('your-function')" value="s"></td>
+
+
+                
+
+                <td><input name="Min" type="button" class="btn btn-sm" onclick="submitData('Min')" value="Min"></td>
+                <td><input name="|" type="button" class="btn btn-sm" onclick="submitData('bitwise_or')" value="|"></td>
+  
+
+                
+
+                <td><input name="**" type="button" class="btn btn-sm" onclick="submitData('Exponentiation')" value="**"></td>
+                <td><input name="s" type="button" class="btn btn-sm" onclick="submitData('your-function')" value="s"></td>
+
+
+                <td><input name="xor" type="button" class="btn btn-sm" onclick="submitData('xor')" value="xor"></td>
+
+
+	</tr>
+	<tr>
+                <td><input name="*" type="button" class="btn btn-sm" onclick="submitData('multiplication')" value="*"></td>
+                <td><input name="<<" type="button" class="btn btn-sm" onclick="submitData('leftshift')" value="<<"></td>
+                <td><input name="s" type="button" class="btn btn-sm" onclick="submitData('your-function')" value="s"></td>
+		<td><input name="/" type="button" class="btn btn-sm" onclick="submitData('div')" value="/"></td>
+
+
+            </tr>
+
+            <tr>
+
+             <td><input name="%" type="button" class="btn btn-sm" onclick="submitData('modulus')" value="%"></td>
+                <td><input name="s" type="button" class="btn btn-sm" onclick="submitData('your-function')" value="s"></td>
+
+                <td><input name="nth" type="button" class="btn btn-sm" onclick="submitData('reporiots')" value="nth"></td>
+                
+
+                <td><input name="d<<" type="button" class="btn btn-sm" onclick="submitData('left_dec')" value="d<<"></td>
+                <td><input name="s" type="button" class="btn btn-sm" onclick="submitData('LOGICAL_OR')" value="OR"></td>
+            </tr>
+ <tr>
+
+                <td><input name="Logical_AND" type="button" class="btn btn-sm" onclick="submitData('LOGICALAND')" style="color: red;" value="AND"></td>
+
+                <td><input name="rs" type="button" class="btn btn-sm" onclick="submitData('shiftright')" value="d>>"></td>
+
+                <td><input name="<<" type="button" class="btn btn-sm" onclick="submitData('left_shift')" value="<<"></td>
+
+
+                <td><input name="~&" type="button" class="btn btn-sm" onclick="submitData('bnand')" value="~&"></td>
+                <td><input name="s" type="button" class="btn btn-sm" onclick="submitData('bitwise-nor')" value="s">bit-nor</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <tr>
+                <td><input name="s" type="button" class="btn btn-sm" onclick="submitData('your-function')" value="s"></td>
+                <td><input name="s" type="button" class="btn btn-sm" onclick="submitData('your-function')" value="s"></td>
+                <td><input name="s" type="button" class="btn btn-sm" onclick="submitData('your-function')" value="s"></td>
+                <td><input name="HCF" type="button" class="btn btn-sm" onclick="submitData('HCF')" value="HCF"></td>
+            </tr>
+            <tr>
+                <td><input name="s" type="button" class="btn btn-sm" onclick="submitData('your-function')" value="s"></td>
+
+                <td><input name="<<" type="button" class="btn btn-sm" onclick="submitData('left_shift')" value="<<"></td>
+
+                <td><input name="&" type="button" class="btn btn-sm" onclick="submitData('Bitwise ANS')" value="&"></td>
+      
+                <td><input name="s" type="button" class="btn btn-sm" onclick="submitData('bitwise-nor')" value="bit-nor"></td>
+                <td><input name="s" type="button" class="btn btn-sm" onclick="submitData('antilog')" value="antilog"></td>
+
+            </tr>
+            
+ 
+            
+
+        </table>
+    </form>
+</body>
+
+</html>
+
